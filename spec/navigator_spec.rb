@@ -27,7 +27,7 @@ describe Navigator do
 		end
 
 		it "will return an error if the directions are invalid" do
-			expect{navigator.direct_rover("LMLMmMLMM")}.to raise_error
+			expect{navigator.direct_rover("LMLMxMLMM")}.to raise_error
 		end
 	end
 
