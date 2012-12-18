@@ -11,7 +11,9 @@ puts "e.g 5,5  (height,width)"
 	grid_dimensions = dimensions.split(",")
 	navigator = Navigator.new
 	navigator.select_grid_size(grid_dimensions[0].to_i, grid_dimensions[1].to_i)
-	p navigator.grid.grid
+	navigator.grid.grid.each_index do |i|
+		p navigator.grid.grid[i]
+	end
 
 puts "Would you like to select a rover to move?(y/n)"
 	answer = gets.chomp
@@ -34,8 +36,13 @@ puts "Would you like to select a rover to move?(y/n)"
 		puts "e.g LMRM"
 			directions = gets.chomp
 			navigator.direct_rover(directions.upcase)
-			puts navigator.rover.coordinates(navigator.rover.x, navigator.rover.y, navigator.rover.orientation)
-			p navigator.grid.grid
+			puts
+			puts "Final position: " + navigator.rover.coordinates(navigator.rover.x, navigator.rover.y, navigator.rover.orientation)
+			puts
+			navigator.grid.grid.each_index do |i|
+				p navigator.grid.grid[i]
+			end
+		puts
 		puts "Would you like to move another rover?(y/n)"
 			answer = gets.chomp
 	end
