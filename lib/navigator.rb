@@ -15,7 +15,6 @@ class Navigator
 	def direct_rover(directions)
 		
 		directions.split("").each do |direction|
-			 
 			case direction	
 			when "L"
 				@rover.rotate_rover(@rover.orientation, direction)
@@ -30,12 +29,6 @@ class Navigator
 		@rover.final_position(@rover.x, @rover.y, @rover.orientation)
 	end
 
-
-	private
-
-	def valid_direction?(direction)
-		direction == "L" || direction == "R" || direction == "M"
-	end
 end
 
 # navigator = Navigator.new
