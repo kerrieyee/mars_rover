@@ -5,10 +5,10 @@ puts "Please enter the size of the grid "
 puts "e.g 5,5  (height,width)"
 	dimensions = gets.chomp
 	until dimensions.match(/\d\,\d/) != nil
-		puts "Wrong format, please enter the grid size in the format 5,5."
+		puts "Wrong format, please enter the grid size in the format 5 5."
 		dimensions = gets.chomp
 	end
-	grid_dimensions = dimensions.split(",")
+	grid_dimensions = dimensions.split(" ")
 	navigator = Navigator.new
 	navigator.select_grid_size(grid_dimensions[0].to_i, grid_dimensions[1].to_i)
 	navigator.grid.grid.each_index do |i|
@@ -20,7 +20,7 @@ puts "Would you like to select a rover to move?(y/n)"
 
 	until answer.upcase == "N"
 		puts "Please enter the coordinates for your rover."
-		puts "e.g 1,3,N (x-coordinate,y-coordinate,orientation)"
+		puts "e.g 1 3 N (x-coordinate,y-coordinate,orientation)"
 			input = gets.chomp
 			until input.match(/\d\,\d\,[N,E,S,W]/i) != nil
 				puts "Wrong Format, please enter the coordinates in the format #,#,N."
@@ -28,7 +28,7 @@ puts "Would you like to select a rover to move?(y/n)"
 				input = gets.chomp
 			end
 
-			coordinates = input.split(",")
+			coordinates = input.split(" ")
 			navigator.select_rover(coordinates[0].to_i, coordinates[1].to_i, coordinates[2].upcase)
 		puts "Please enter you directions for the rover."
 		puts "You can only use the letters L, R, and M." 
