@@ -1,5 +1,5 @@
 require 'rspec'
-require '../lib/navigator.rb'
+require_relative '../lib/navigator'
 
 describe Navigator do 
 	let(:navigator){Navigator.new}
@@ -23,7 +23,7 @@ describe Navigator do
 	describe "#direct_rover" do
 		it "takes valid directions and moves the rover properly" do
 			navigator.direct_rover("LMLMLMLMM")
-			navigator.rover.coordinates(navigator.rover.x, navigator.rover.y, navigator.rover.orientation).should eq("x: 1, y: 3, orientation: N")
+			navigator.rover.coordinates(navigator.rover.x, navigator.rover.y, navigator.rover.orientation).should eq("1 3 N")
 		end
 
 		it "will return an error if the directions are invalid" do

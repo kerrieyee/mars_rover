@@ -7,7 +7,9 @@ To get started:
 
 2) bundle install  
 
-3) To run the program, type:  
+3) to run the tests type:  rake    
+
+4) To run the program, type:  
    
    ruby user_interface.rb
 

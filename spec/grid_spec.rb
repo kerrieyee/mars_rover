@@ -1,5 +1,5 @@
 require 'rspec'
-require '../lib/grid.rb'
+require_relative '../lib/grid'
 
 describe Grid do 
 	describe "#available?" do

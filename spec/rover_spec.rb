@@ -1,5 +1,5 @@
 require 'rspec'
-require '../lib/rover.rb'
+require_relative '../lib/rover'
 
 
 describe Rover do 
@@ -75,7 +75,7 @@ describe Rover do
 
 	describe "#coordinates" do 
 		it "should return the coordinates of the rover" do
-			@rover.coordinates(1, 1, "N").should eq("x: 1, y: 1, orientation: N")
+			@rover.coordinates(1, 1, "N").should eq("1 1 N")
 		end
 	end
 end
