@@ -36,7 +36,7 @@ class Rover
 	end
 
 	def coordinates(x, y, orientation)
-		"x: #{@x}, y: #{@y}, orientation: #{@orientation}"
+		"#{@x} #{@y} #{@orientation}"
 	end
 
 	private 
