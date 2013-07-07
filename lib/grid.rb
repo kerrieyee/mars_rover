@@ -3,6 +3,7 @@ class Grid
 
   # why +1?  If I enter 5,5, it should have 5 columns and rows, but it has 6.
   def initialize(height, width)
+    # should validate that height and width are >0, raise an error otherwise.
     @grid = Array.new(height){Array.new(width)}
     @height = height
     @width = width
