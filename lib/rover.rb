@@ -3,6 +3,7 @@ require_relative './grid'
 class Rover
   attr_reader :x, :y, :orientation
   attr_accessor :grid
+  ROTATIONS = ["N", "E", "S", "W"]
 
   def initialize(x, y, orientation, grid)
     @x = x
@@ -12,8 +13,7 @@ class Rover
   end
 
   def rotate_rover(orientation, direction)
-    rotations= ["N", "E", "S", "W"]
-    direction == "R" ? turn_right(rotations, orientation) : turn_left(rotations, orientation)
+    direction == "R" ? turn_right(orientation) : turn_left(orientation)
   end
 
   def move_to_new_grid(orientation)
@@ -40,19 +40,19 @@ class Rover
 
   private
 
-  def turn_left(array, orientation)
-    if first_element?(array, orientation)
-      @orientation = array[-1]
+  def turn_left(orientation)
+    if first_element?(ROTATIONS, orientation)
+      @orientation = ROTATIONS[-1]
     else
-      @orientation = array[(array.index(orientation) - 1)]
+      @orientation = ROTATIONS[(ROTATIONS.index(orientation) - 1)]
     end
   end
 
-  def turn_right(array, orientation)
-    if last_element?(array, orientation)
-      @orientation = array[0]
+  def turn_right(orientation)
+    if last_element?(ROTATIONS, orientation)
+      @orientation = ROTATIONS[0]
     else
-      @orientation = array[(array.index(orientation) + 1)]
+      @orientation = ROTATIONS[(ROTATIONS.index(orientation) + 1)]
     end
   end
 
