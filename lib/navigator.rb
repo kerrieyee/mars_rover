@@ -1,5 +1,17 @@
 require_relative './rover'
 
+# Make sure you know what each class is responsible for and put it in a comment at the top.
+# This helps you spot when one class is doing too much or doing something it shouldn't.
+# This helps maintain the Single Responsibility Principle of OOP.
+#
+# A navigator builds the grid from user input.
+# A navigator builds a rover from user input.
+# A navigator takes user input, and sends directions to a Rover.
+# A navigator calls Rover#final_position to tell it to update the grid.
+
+# When I write this out, it seems like #final_position should be a navigator method.
+# The navigator already knows about the grid and the rover.  He is like the middleman who knows both.
+# And updating a grid with a rover position is logic that needs to know both.
 class Navigator
   attr_reader :rover, :grid
 

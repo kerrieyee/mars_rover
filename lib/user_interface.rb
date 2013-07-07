@@ -1,5 +1,11 @@
 require_relative './navigator'
 
+# This isn't class but you could make it one.
+# It is clearly responsible for interacting with the user.
+# Displaying messages and getting input.
+# Nice job on separating this.
+
+# It should probably handle the exceptions from the Navigator.
 
 puts "Please enter the size of the grid "
 puts "e.g 5 5  (height width)"

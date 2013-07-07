@@ -1,5 +1,17 @@
 require_relative './grid'
 
+# Make sure you know what each class is responsible for and put it in a comment at the top.
+# This helps you spot when one class is doing too much or doing something it shouldn't.
+# This helps maintain the Single Responsibility Principle of OOP.
+#
+# A rover has coordinates (x, y) and an orientation on a Grid.
+# A rover can turn left or right.
+# It can move forward.
+# A rover needs to know about a grid, so it can make sure it doesn't move off the grid or into another object on the grid.
+# A rover can update the grid with its state.
+
+# The last two responsibilities show some couping with a Grid.
+# It isn't bad, but a potential smell.  I'm not sure how I feel about a rover updating the grid in #final_position.
 class Rover
   attr_reader :x, :y, :orientation
   attr_accessor :grid
