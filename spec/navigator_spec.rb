@@ -7,6 +7,10 @@ describe Navigator do
     subject.select_rover(1,2,"N")
   end
 
+  its(:grid) { should be_a(Grid) }
+
+  # this spec is phrased a bit oddly.  are you testing #select_grid_size?  it seems like you are testing #grid.
+  # you should probably test #select_grid_size directly to make sure it instantiates a grid and assigns it (you are kinda doing that indirectly by testing #grid)
   describe "#select_grid_size" do
     it "creates a new grid" do
       subject.grid.should be_a(Grid)
@@ -19,6 +23,8 @@ describe Navigator do
     end
   end
 
+  # this is nice overall nice; one refactor though - it is weird that you have rover#coordinates take the rover itself as an argument.
+  # this is a code smell.  you shoudn't need to pass attributes of the object to a method of the object.
   describe "#direct_rover" do
     it "takes valid directions and moves the rover properly" do
       subject.direct_rover("LMLMLMLMM")
