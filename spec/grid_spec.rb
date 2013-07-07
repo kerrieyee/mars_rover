@@ -2,6 +2,18 @@ require 'rspec'
 require_relative '../lib/grid'
 
 describe Grid do
+  describe "#initialize" do
+    subject { Grid.new(5,5) }
+
+    it "should have a width of 5" do
+      subject.grid.length.should == 5
+    end
+
+    it "should have a height of 5" do
+      subject.grid[0].length.should == 5
+    end
+  end
+
   describe "#available?" do
     let(:grid){Grid.new(6,6)}
 
