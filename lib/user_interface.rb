@@ -1,5 +1,11 @@
 require_relative './navigator'
 
+# This isn't class but you could make it one.
+# It is clearly responsible for interacting with the user.
+# Displaying messages and getting input.
+# Nice job on separating this.
+
+# It should probably handle the exceptions from the Navigator.
 
 puts "Please enter the size of the grid "
 puts "e.g 5 5  (height width)"
@@ -37,7 +43,7 @@ puts "Would you like to select a rover to move?(y/n)"
 			directions = gets.chomp
 			navigator.direct_rover(directions.upcase)
 			puts
-			puts "Final position: " + navigator.rover.coordinates(navigator.rover.x, navigator.rover.y, navigator.rover.orientation)
+			puts "Final position: " + navigator.rover.coordinates
 			puts
 			navigator.grid.grid.each_index do |i|
 				p navigator.grid.grid[i]
