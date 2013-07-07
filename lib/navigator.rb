@@ -15,9 +15,9 @@ class Navigator
     directions.split("").each do |direction|
       case direction
       when "L"
-        @rover.rotate_rover(@rover.orientation, direction)
+        @rover.rotate_rover(direction)
       when "R"
-        @rover.rotate_rover(@rover.orientation, direction)
+        @rover.rotate_rover(direction)
       when "M"
         @rover.move_to_new_grid(@rover.orientation)
       else

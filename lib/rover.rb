@@ -12,8 +12,8 @@ class Rover
     @grid = grid
   end
 
-  def rotate_rover(orientation, direction)
-    direction == "R" ? turn_right(orientation) : turn_left(orientation)
+  def rotate_rover(direction)
+    direction == "R" ? turn_right : turn_left
   end
 
   def move_to_new_grid(orientation)
@@ -40,7 +40,7 @@ class Rover
 
   private
 
-  def turn_left(orientation)
+  def turn_left
     if first_element?(ROTATIONS, orientation)
       @orientation = ROTATIONS[-1]
     else
@@ -48,7 +48,7 @@ class Rover
     end
   end
 
-  def turn_right(orientation)
+  def turn_right
     if last_element?(ROTATIONS, orientation)
       @orientation = ROTATIONS[0]
     else

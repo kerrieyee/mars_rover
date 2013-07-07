@@ -12,12 +12,12 @@ describe Rover do
 
   describe "#rotate_rover" do
     it "rotates the rover left if the direction given is L" do
-      @rover.rotate_rover(@rover.orientation, "L")
+      @rover.rotate_rover("L")
       @rover.orientation.should eq("W")
     end
 
     it "rotates the rover right if the direction given is R" do
-      @rover.rotate_rover(@rover.orientation, "R")
+      @rover.rotate_rover("R")
       @rover.orientation.should eq("E")
     end
   end
