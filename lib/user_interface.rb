@@ -37,7 +37,7 @@ puts "Would you like to select a rover to move?(y/n)"
 			directions = gets.chomp
 			navigator.direct_rover(directions.upcase)
 			puts
-			puts "Final position: " + navigator.rover.coordinates(navigator.rover.x, navigator.rover.y, navigator.rover.orientation)
+			puts "Final position: " + navigator.rover.coordinates
 			puts
 			navigator.grid.grid.each_index do |i|
 				p navigator.grid.grid[i]

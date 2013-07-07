@@ -28,7 +28,7 @@ describe Navigator do
   describe "#direct_rover" do
     it "takes valid directions and moves the rover properly" do
       subject.direct_rover("LMLMLMLMM")
-      subject.rover.coordinates(subject.rover.x, subject.rover.y, subject.rover.orientation).should eq("1 3 N")
+      subject.rover.coordinates.should eq("1 3 N")
     end
 
     it "will return an error if the directions are invalid" do

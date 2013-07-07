@@ -35,7 +35,7 @@ class Rover
 		@grid.grid.reverse[y][x] = orientation
 	end
 
-	def coordinates(x, y, orientation)
+	def coordinates
 		"#{@x} #{@y} #{@orientation}"
 	end
 

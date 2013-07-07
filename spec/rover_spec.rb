@@ -75,7 +75,7 @@ describe Rover do
 
 	describe "#coordinates" do 
 		it "should return the coordinates of the rover" do
-			@rover.coordinates(1, 1, "N").should eq("1 1 N")
+			@rover.coordinates.should eq("1 1 N")
 		end
 	end
 end
