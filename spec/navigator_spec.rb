@@ -32,7 +32,7 @@ describe Navigator do
     it "will remove the original position when the rover is moved" do
 	    x = subject.rover.x
 	    y = subject.rover.y
-	    subject.rover.grid.grid.reverse[y][x] = "W"
+	    subject.grid.grid.reverse[y][x] = "W"
 	    subject.grid.stub(:available?).and_return(true)
 	    subject.direct_rover("M")
 	    subject.grid.grid.reverse[y][x].should be_nil
@@ -61,4 +61,42 @@ describe Navigator do
       subject.grid.grid.reverse[2][1].should eq("W")
     end
   end
+
+  context "moves are not valid" do
+    describe "#move_y" do
+      it "raises an error if the rover tries to move off the south edge of the grid" do
+        subject.select_rover(0,0, "S")
+        expect{subject.move}.to raise_error
+      end
+
+      it "raises an error if the rover tries to move off the north edge of the moves_to_new_grid" do
+        subject.select_rover(5,5, "N")
+        expect{subject.move}.to raise_error
+      end
+
+      it "raises an error if the space is not available" do
+        subject.grid.grid[1][3] = "N"
+        expect{subject.move}.to raise_error
+      end
+    end
+
+    describe "#move_x" do
+      it "raises an error if the rover tries to move off the east edge of the grid" do
+        subject.select_rover(5,5, "E")
+        expect{subject.move}.to raise_error
+      end
+
+      it "raises an error if the rover tries to move off the west edge of the grid" do
+        subject.select_rover(0,0, "W")
+        expect{subject.move}.to raise_error
+      end
+
+      it "raises an error if the space is not available" do
+        subject.direct_rover("L")
+        subject.grid.grid[0][2] = "N"
+        expect{subject.move}.to raise_error
+      end
+    end
+  end
+
 end
