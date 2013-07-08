@@ -1,6 +1,5 @@
 require_relative './navigator'
 
-
 puts "Please enter the size of the grid "
 puts "e.g 5 5  (height width)"
 	dimensions = gets.chomp
@@ -18,7 +17,7 @@ puts "e.g 5 5  (height width)"
 puts "Would you like to select a rover to move?(y/n)"
 	answer = gets.chomp
 
-	until answer.upcase == "N"
+	while answer.upcase == "Y"
 		puts "Please enter the coordinates for your rover."
 		puts "e.g 1 3 N (x-coordinate y-coordinate orientation)"
 			input = gets.chomp
@@ -35,9 +34,16 @@ puts "Would you like to select a rover to move?(y/n)"
 		puts "L is to turn the rover left, R to turn the rover right and M move the rover forward." 
 		puts "e.g LMRM"
 			directions = gets.chomp
-			navigator.direct_rover(directions.upcase)
+			directions.split("").each do |d|
+				if ["L","R","M", " "].include?(d.upcase)
+					navigator.direct_rover(d)
+				else
+					raise ArgumentError, "#{d} is not a valid direction.  Directions must be L, R, M"
+				end
+			end
+			navigator.update_position
 			puts
-			puts "Final position: " + navigator.rover.coordinates(navigator.rover.x, navigator.rover.y, navigator.rover.orientation)
+			puts "Final position: " + navigator.final_coordinates
 			puts
 			navigator.grid.grid.each_index do |i|
 				p navigator.grid.grid[i]
