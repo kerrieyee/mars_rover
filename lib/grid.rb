@@ -7,7 +7,7 @@ class Grid
   attr_reader :grid, :height, :width
 
   def initialize(height, width)
-    # should validate that height and width are >0, raise an error otherwise.
+    raise Argument Error, "height and width must be greater than 0" if height <0 || width < 0
     @grid = Array.new(height+1){Array.new(width+1)}
     @height = height
     @width = width

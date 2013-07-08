@@ -3,14 +3,26 @@ require_relative '../lib/grid'
 
 describe Grid do
   describe "#initialize" do
-    subject { Grid.new(5,5) }
+    context "has valid width and height" do
+      subject { Grid.new(5,5) }
 
-    it "should have a width of 5" do
-      subject.grid.length.should == 6
+      it "should have a width of 6" do
+        subject.grid.length.should == 6
+      end
+
+      it "should have a height of 6" do
+        subject.grid[0].length.should == 6
+      end
     end
 
-    it "should have a height of 5" do
-      subject.grid[0].length.should == 6
+    context "has invalid width and height" do
+      it "should raise an error if the height is invalid" do
+        expect{Grid.new(-5,1)}.to raise_error
+      end
+
+      it "should raise an error if the width is invalid" do
+        expect{Grid.new(5,-1)}.to raise_error
+      end
     end
   end
 
